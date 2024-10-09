@@ -1,0 +1,52 @@
+﻿@page "/counter"
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me to increment!</button>
+
+<button class="btn btn-primary" @onclick="DecrementCount">Click me to decrement!</button>
+
+<p>
+    Test output
+</p>
+
+<h1>
+    The customer details:
+</h1>
+
+<h2>
+    Name: @customerName
+</h2>
+
+<h2>
+    Salary: @salary
+</h2>
+
+<h2>
+    Job Position: @jobPosition
+</h2>
+
+
+
+@code {
+    private int currentCount = 0;
+    private string customerName = "Philippe Mallari";
+    private double salary = 4999.99;
+    private string jobPosition = "Front End Developer";
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private void DecrementCount()
+    {
+        currentCount--;
+
+        // if (currentCount < 0) {
+            
+        // }
+    }
+}

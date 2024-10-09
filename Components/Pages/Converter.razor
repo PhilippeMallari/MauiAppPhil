@@ -1,0 +1,34 @@
+﻿@page "/Converter"
+
+<h3>Converter</h3>
+
+<label>
+    Enter distance to kilometers:
+</label>
+
+<input type="text" @bind="@kiloText" />
+
+<br />
+
+<button @onclick="ConvertDistance">Calculate</button>
+
+<strong>
+    <label>
+        Distance in Miles: @distanceInMiles
+    </label>
+</strong>
+
+@*
+    @bind is a directive used for two way binding between the control and the attribute
+*@
+
+@code {
+    private string kiloText;
+    private string distanceInMiles;
+
+    private void ConvertDistance()
+    {
+        const double CONVERSION = 0.6214;
+        distanceInMiles = (double.Parse(kiloText) * CONVERSION).ToString();
+    }
+}
