@@ -1,6 +1,7 @@
 ﻿namespace MauiAppPhil
 {
-    public partial class MainPage : ContentPage
+    // from ContentPage to TabbedPage
+    public partial class MainPage : TabbedPage
     {
         public MainPage()
         {
