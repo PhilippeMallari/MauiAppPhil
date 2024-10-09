@@ -18,6 +18,20 @@
     </label>
 </strong>
 
+<br />
+<br />
+<div>
+    <h3>
+        Checkbox demo
+    </h3>
+    <div style="background-color: @(IsChecked ? "green" : "yellow"); color: @(IsChecked ? "white" : "blue")">
+        <input type="checkbox" @bind="IsChecked" />
+        <p>
+            Your text
+        </p>
+    </div>
+</div>
+
 @*
     @bind is a directive used for two way binding between the control and the attribute
 *@
@@ -30,5 +44,18 @@
     {
         const double CONVERSION = 0.6214;
         distanceInMiles = (double.Parse(kiloText) * CONVERSION).ToString();
+    }
+
+    // Checkbox Demo
+    // datafield
+    private bool _IsChecked;
+    // property
+    public bool IsChecked
+    {
+        get => _IsChecked;
+        set
+        {
+            _IsChecked = value;
+        }
     }
 }
