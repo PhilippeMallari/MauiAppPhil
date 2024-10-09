@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Blazorise;
+using Microsoft.Extensions.Logging;
+using Blazorise.Bootstrap;
+using Blazorise.Icons.FontAwesome;
 
 namespace MauiAppPhil
 {
@@ -15,9 +18,10 @@ namespace MauiAppPhil
                 });
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddBlazorise().AddBootstrapProviders().AddFontAwesomeIcons();
 
 #if DEBUG
-    		builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
 #endif
 
