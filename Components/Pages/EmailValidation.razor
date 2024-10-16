@@ -1,0 +1,44 @@
+﻿@page "/email-validation"
+
+<h3>Email Validation Page</h3>
+<label>User</label>
+
+<select @onchange="ShowEmail">
+    <option disabled>Select an email: </option>
+    @foreach(var item in users)
+    {
+        <option value="@item.Email">@item.Id ---- @item.Email</option>
+    }
+</select>
+
+<p>Selected email: @selectedEmail</p>
+
+<br />
+<br />
+<button @onclick="ValidateEmail">Validate</button>
+<p>Message: @message</p>
+
+@code {
+    UserManager userManager = new UserManager();
+    List<User> users = UserManager.GetUsers();
+
+    string selectedEmail;
+    string message;
+
+    void ShowEmail(ChangeEventArgs e)
+    {
+        // this will be value="@item.Email"
+        selectedEmail = e.Value.ToString();
+    }
+
+    void ValidateEmail()
+    {
+        if (selectedEmail.Contains('@'))
+        {
+            message = "This is a valid email!";
+        } else
+        {
+            message = "Not a valid email!";
+        }
+    }
+}
